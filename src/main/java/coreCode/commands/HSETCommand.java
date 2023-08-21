@@ -35,4 +35,16 @@ public class HSETCommand implements Command{
         Protocol.getOKMsg(outputStream);
         return 1;
     }
+
+    @Override
+    public void run() {
+        String key = args.get(0);
+        Map<String,String> fields = new HashMap<>();
+        for (int i=1;i<args.size();i=i+2){
+            String field = args.get(i);
+            String value = args.get(i+1);
+            fields.put(field,value);
+        }
+        Database.getInstance().hset(key,fields);
+    }
 }

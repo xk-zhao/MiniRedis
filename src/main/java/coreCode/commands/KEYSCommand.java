@@ -21,4 +21,9 @@ public class KEYSCommand implements Command{
         Protocol.getArrayMsg(outputStream,list);
         return 1;
     }
+
+    @Override
+    public void run() {
+
+    }
 }

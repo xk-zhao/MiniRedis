@@ -55,4 +55,9 @@ public class HGETCommand implements Command{
 
         return 0;
     }
+
+    @Override
+    public void run() {
+
+    }
 }

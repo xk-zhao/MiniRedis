@@ -17,7 +17,7 @@ public class RDBPersistNeo implements Persist{
 
     @Override
     public void store() throws IOException {
-        Map<String,String> mapData = Database.getInstance().getMapData();
+        Map<String,String> mapData = Database.getMapData();
         File file = new File(filePath);
         if (!file.exists()){
             file.createNewFile();

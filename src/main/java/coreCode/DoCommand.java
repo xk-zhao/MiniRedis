@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class DoCommand {
     //目前实现的命令
-    private static String[] AllCommand = {"SET","GET","DEL","KEYS","HGET","HSET","EXPIRE"};
+    private static String[] AllCommand = {"SET","GET","DEL","KEYS","HGET","HSET","EXPIRE","PERSIST"};
     public static int exec(String command,OutputStream outputStream) throws Exception {
         //命令全部
         String[] commands = command.split(" ");
@@ -40,5 +40,27 @@ public class DoCommand {
         int stateCode = commandInstance.run(outputStream);
 
         return stateCode;
+    }
+    public static void exec(String command) throws Exception {
+        //命令全部
+        String[] commands = command.split(" ");
+        String trueCommand = commands[0];
+        //
+        /**
+         * 反射获取实例
+         */
+        String className = String.format("coreCode.commands.%sCommand",trueCommand.toUpperCase());
+        Class<?> cls = Class.forName(className);
+        List<String> args = new ArrayList<>();
+        for (int i=1;i< commands.length;i++){
+            args.add(commands[i]);
+        }
+        Command commandInstance = (Command) cls.newInstance();
+        commandInstance.setArgs(args);
+
+        /**
+         * 执行
+         */
+        commandInstance.run();
     }
 }

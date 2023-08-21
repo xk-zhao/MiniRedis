@@ -1,0 +1,10 @@
+syntax = "proto3";
+option java_outer_classname = "CommandProto";
+option java_package = "coreCode.utils";
+message Command{
+  string command = 1;
+}
+
+message CommandList{
+  repeated Command command= 1;
+}

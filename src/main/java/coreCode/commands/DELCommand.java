@@ -33,4 +33,9 @@ public class DELCommand implements Command{
         Protocol.getOKMsg(outputStream);
         return 1;
     }
+
+    @Override
+    public void run() {
+
+    }
 }

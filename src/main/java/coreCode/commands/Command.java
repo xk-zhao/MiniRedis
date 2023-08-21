@@ -12,4 +12,5 @@ public interface Command {
      */
     void setArgs(List<String> args);
     int run(OutputStream outputStream) throws Exception;
+    void run();
 }

@@ -49,7 +49,28 @@ public class SETCommand implements Command{
                 Protocol.getErrMsg(outputStream,"error");
             }
             return stateCode;
+        }else{
+            Protocol.getErrMsg(outputStream,"args error");
         }
         return 0;
+    }
+
+    @Override
+    public void run() {
+        if(args.size()==2){
+            String key = (String) args.get(0);
+            String value =(String) args.get(1);
+            Database.getInstance().set(key,value);
+        }else if(args.size()==3){
+            String key = (String) args.get(0);
+            String value =(String) args.get(1);
+            long time = 0L;
+            try{
+                time = Long.parseLong(args.get(2));
+                Database.getInstance().set(key,value,time*1000);
+            }catch (Exception e){
+                return;
+            }
+        }
     }
 }

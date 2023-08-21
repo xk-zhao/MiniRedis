@@ -30,4 +30,9 @@ public class GETCommand implements Command{
         }
         return 1;
     }
+
+    @Override
+    public void run() {
+
+    }
 }

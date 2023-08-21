@@ -7,5 +7,5 @@ import java.io.IOException;
 
 public interface Persist {
     void store() throws IOException;
-    void load() throws IOException;
+    void load() throws Exception;
 }
