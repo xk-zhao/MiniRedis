@@ -3,7 +3,6 @@ package coreCode.persist;
 import coreCode.Database;
 import coreCode.DoCommand;
 import coreCode.utils.CommandProto;
-import coreCode.utils.EntityProto;
 
 import java.io.*;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 public class AOFPersist implements Persist{
     private String filePath = "MiniRedis.aof";
     private String loadPath = "MiniRedis.aof";
-    public AOFPersist(){};
+    public AOFPersist(){}
     public AOFPersist(String loadPath){this.loadPath = loadPath;}
     @Override
     public void store() throws IOException {
